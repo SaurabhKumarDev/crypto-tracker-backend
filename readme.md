@@ -140,3 +140,10 @@ Example:
 
 - 💼 linkedin.com/in/saurabhkumardev
 - 📧 saurabhkumarmehto@gmail.com
+
+
+## DB (History crypto)
+![App Screenshot](./public/mongo.png)
+
+## Cron job (Code)
+![App Screenshot](./public/cron%20job.png)
