@@ -52,7 +52,7 @@ router.post('/login', async (req, res) => {
 
     res.cookie('token', token, {
       httpOnly: isProduction,
-      sameSite: 'lax',
+      sameSite: isProduction ? 'none' : 'lax',
       secure: isProduction,
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
