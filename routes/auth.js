@@ -51,10 +51,11 @@ router.post('/login', async (req, res) => {
     const isProduction = process.env.NODE_ENV === 'production';
 
     res.cookie('token', token, {
-      httpOnly: isProduction,
-      sameSite: isProduction ? 'none' : 'lax',
-      secure: isProduction,
+      httpOnly: true,
+      secure: isProduction, // true on HTTPS production
+      sameSite: isProduction ? 'none' : 'lax', // For cross-domain support
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      path: '/',
     });
 
     res.status(200).json({ message: 'Login successful' });
