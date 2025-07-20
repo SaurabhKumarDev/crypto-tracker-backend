@@ -2,8 +2,11 @@ const express = require("express")
 const { CurrentCoin, HistoryCoin } = require("../models/Coin")
 const coinGeckoService = require("../services/coinGeckoService")
 const { updateCoinData } = require("../services/cronService")
+const authRoutes = require("./auth")
 
 const router = express.Router()
+
+router.use("/auth", authRoutes);
 
 // GET /api/coins - Fetch current top 10 cryptocurrencies
 router.get("/coins", async (req, res) => {

@@ -1,6 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
+const cookieParser = require('cookie-parser');
 const helmet = require("helmet")
 const rateLimit = require("express-rate-limit")
 require("dotenv").config()
@@ -30,6 +31,7 @@ app.use(
 )
 
 app.use(express.json())
+app.use(cookieParser());
 
 // MongoDB connection
 mongoose
