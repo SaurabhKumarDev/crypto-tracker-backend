@@ -13,14 +13,14 @@ const app = express()
 const PORT = process.env.PORT || 5000
 
 // Security middleware
-// app.use(helmet())
+app.use(helmet())
 
 // Rate limiting
-// const limiter = rateLimit({
-//   windowMs: 15 * 60 * 1000,
-//   max: 100,
-// })
-// app.use(limiter)
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+})
+app.use(limiter)
 
 // CORS configuration
 app.use(
