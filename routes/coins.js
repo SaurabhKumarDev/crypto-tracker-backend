@@ -19,7 +19,7 @@ router.get("/coins", async (req, res) => {
     const needsUpdate = coins.length === 0 || coins.some((coin) => new Date(coin.lastUpdated) < thirtyMinutesAgo)
 
     if (needsUpdate) {
-      console.log("🔄 Fetching fresh data from CoinGecko...")
+      console.log("Fetching fresh data from CoinGecko...")
       try {
         const freshData = await coinGeckoService.getTopCoins(10)
 

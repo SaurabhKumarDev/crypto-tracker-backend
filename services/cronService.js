@@ -20,7 +20,7 @@ function createCronService() {
       const coinData = await coinGeckoService.getTopCoins(10)
       console.log(`Fetched data for ${coinData.length} coins`)
 
-      // Update current data (upsert)
+      // Update current data (upsert =>  If no document matches the filter, insert a new one using the provided data.)
       const currentUpdatePromises = coinData.map((coin) =>
         CurrentCoin.findOneAndUpdate({ coinId: coin.coinId }, coin, { upsert: true, new: true })
       )
